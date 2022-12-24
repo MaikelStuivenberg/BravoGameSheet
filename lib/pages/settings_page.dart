@@ -1,4 +1,4 @@
-import 'package:encore2_game_sheet/constants/settings.dart';
+import 'package:encore2_gamesheet/constants/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -114,15 +114,16 @@ class SettingsPageState extends State<SettingsPage> {
                   width: 150,
                   child: OutlinedButton(
                     onPressed: () {
-                      Navigator.push<List<String>>(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                ChooseCardPage(key: GlobalKey())),
-                      ).then((value) => {
-                            if (value![0] != "Cancel")
-                              Navigator.pop(context, value)
-                          });
+                      Navigator.pop(context, ["1", "multi"]);
+                      //   Navigator.push<List<String>>(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             ChooseCardPage(key: GlobalKey())),
+                      //   ).then((value) => {
+                      //         if (value![0] != "Cancel")
+                      //           Navigator.pop(context, value)
+                      //       });
                     },
                     child: const Text('New Game'),
                   ),

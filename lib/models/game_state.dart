@@ -1,5 +1,5 @@
-import 'package:encore2_game_sheet/cards/level_1.dart';
-import 'package:encore2_game_sheet/models/bonus_point.dart';
+import 'package:encore2_gamesheet/cards/level_1.dart';
+import 'package:encore2_gamesheet/models/bonus_point.dart';
 
 import '../constants/box_colors.dart';
 import '../constants/card_points.dart';
@@ -7,6 +7,7 @@ import 'box_color.dart';
 
 class GameState {
   var card = Level1Card().getCard();
+  var level = "1";
 
   var singlePlayerMode = false;
 
@@ -84,6 +85,8 @@ class GameState {
     boxesUsed = 0;
     heartsActivated = 0;
 
+    level = lvl;
+    
     // Load the card from the given level
     switch (lvl) {
       case "1":
@@ -97,11 +100,12 @@ class GameState {
   }
 
   int _calcStarPoints() {
-    return card
+    var points = card
             .expand((element) => element)
             .where((element) => element.star && !element.checked)
             .length *
         2;
+    return points;
   }
 
   int getActivatedBoxes() {
@@ -124,12 +128,16 @@ class GameState {
   }
 
   int _calcClosedRowsPoints() {
-    return card.where((row) => row.every((element) => element.checked)).length *
-        5;
+    var points =
+        card.where((row) => row.every((element) => element.checked)).length * 5;
+
+    return points;
   }
 
   int _calcHeartsPoints() {
-    return heartsBonusPoints.fold(0, (previousValue, element) => element.bonusPoints);
+    var points = heartsBonusPoints.fold(
+        0, (int previousValue, element) => previousValue + element.bonusPoints);
+    return points;
   }
 
   bool isBoxColorManualClosed(BoxColor color) {

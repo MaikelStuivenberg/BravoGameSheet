@@ -1,14 +1,14 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:encore2_game_sheet/constants/box_colors.dart';
-import 'package:encore2_game_sheet/constants/card_points.dart';
-import 'package:encore2_game_sheet/constants/row_bonus.dart';
-import 'package:encore2_game_sheet/constants/settings.dart';
-import 'package:encore2_game_sheet/custom_icons_icons.dart';
-import 'package:encore2_game_sheet/models/box_color.dart';
-import 'package:encore2_game_sheet/models/game_state.dart';
-import 'package:encore2_game_sheet/pages/settings_page.dart';
-import 'package:encore2_game_sheet/painters/cross_painter.dart';
-import 'package:encore2_game_sheet/painters/slash_painter.dart';
+import 'package:encore2_gamesheet/constants/box_colors.dart';
+import 'package:encore2_gamesheet/constants/card_points.dart';
+import 'package:encore2_gamesheet/constants/row_bonus.dart';
+import 'package:encore2_gamesheet/constants/settings.dart';
+import 'package:encore2_gamesheet/custom_icons_icons.dart';
+import 'package:encore2_gamesheet/models/box_color.dart';
+import 'package:encore2_gamesheet/models/game_state.dart';
+import 'package:encore2_gamesheet/pages/settings_page.dart';
+import 'package:encore2_gamesheet/painters/cross_painter.dart';
+import 'package:encore2_gamesheet/painters/slash_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -787,7 +787,7 @@ class GamePageState extends State<GamePage> {
   }
 
   double getDefaultBoxSize() {
-    var maxWidth = (MediaQuery.of(context).size.width - 170) / 16;
+    var maxWidth = (MediaQuery.of(context).size.width - 200) / 18;
     var maxHeight = MediaQuery.of(context).size.height / 11;
     return maxHeight > maxWidth ? maxWidth : maxHeight;
   }
@@ -821,19 +821,8 @@ class GamePageState extends State<GamePage> {
           ),
           TextButton(
             onPressed: () => {
-              Navigator.push<List<String>>(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ChooseCardPage(key: GlobalKey())),
-              ).then((value) => {
-                    if (value![0] != "Cancel")
-                      {
-                        gameState.singlePlayerMode =
-                            value[1] == "single" ? true : false,
-                        resetGame(value[0]),
-                        Navigator.pop(context, "Ok")
-                      }
-                  }),
+              resetGame(gameState.level),
+              Navigator.pop(context, "Ok")
             },
             child: const Text('Start new game'),
           ),

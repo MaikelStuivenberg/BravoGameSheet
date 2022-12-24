@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nl.maikelstuivenberg.2_game_sheet">
+    package="nl.maikelstuivenberg.encore2_gamesheet">
    <application
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher">
