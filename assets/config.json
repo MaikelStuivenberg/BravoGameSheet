@@ -1,0 +1,22 @@
+{
+  "name": "CustomIcons",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "39e7bc76772a2bca0a53333c21b32057",
+      "css": "dice_d6",
+      "code": 63185,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "cb365a8bed9f48313c3c5299cb5868a3",
+      "css": "bomb",
+      "code": 61922,
+      "src": "fontawesome5"
+    }
+  ]
+}
