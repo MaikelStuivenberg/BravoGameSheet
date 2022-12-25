@@ -833,7 +833,7 @@ class GamePageState extends State<GamePage> {
 
   void resetGame(String lvl) {
     setState(() {
-      gameState.reset(lvl);
+      gameState = GameState();
     });
   }
 
