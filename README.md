@@ -1,7 +1,7 @@
 Bravo Game Sheet (Android / iOS app)
 ==================
 
-This app is a digital game sheet for the second version of Bravo (Keer op Keer 2 / Noch mal so gut) build in <a href="https://flutter.dev/">Flutter<a>. You need the original dice to play the game with this app.
+This app is a digital game sheet for the second version of Bravo (Keer op Keer 2 / Noch mal so gut / Plenus 2) build in <a href="https://flutter.dev/">Flutter<a>. You need the original dice to play the game with this app.
   
 ![Screenshot 1 - Hide score](https://user-images.githubusercontent.com/13018117/147416624-30a3453d-f9a7-45ee-ba45-bdaac7a972db.jpg)
 
