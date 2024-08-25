@@ -13,10 +13,9 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/field_letters.dart';
-import 'choose_card.dart';
 
 class GamePage extends StatefulWidget {
-  const GamePage({required Key key}) : super(key: key);
+  const GamePage({super.key});
 
   @override
   GamePageState createState() => GamePageState();
@@ -820,10 +819,8 @@ class GamePageState extends State<GamePage> {
             child: const Text('Cancel'),
           ),
           TextButton(
-            onPressed: () => {
-              resetGame(gameState.level),
-              Navigator.pop(context, "Ok")
-            },
+            onPressed: () =>
+                {resetGame(gameState.level), Navigator.pop(context, "Ok")},
             child: const Text('Start new game'),
           ),
         ],

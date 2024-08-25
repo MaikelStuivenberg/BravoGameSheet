@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 import 'pages/game_page.dart';
 
 void main() {
-  runApp(EncoreGameSheet());
+  runApp(const EncoreGameSheet());
 }
 
 class EncoreGameSheet extends StatelessWidget {
-    final _key = GlobalKey();
-
-  EncoreGameSheet({Key? key}) : super(key: key);
-
+  const EncoreGameSheet({super.key});
 
   // This widget is the root of your application.
   @override
@@ -24,14 +21,14 @@ class EncoreGameSheet extends StatelessWidget {
 
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 
-    Wakelock.enable();
+    WakelockPlus.enable();
 
     return MaterialApp(
       title: 'Encore 2 Game Sheet',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GamePage(key: _key),
+      home: const GamePage(),
     );
   }
 }
