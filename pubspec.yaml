@@ -1,9 +1,9 @@
 name: encore2_gamesheet
-description: A (digital) game sheet for Bravo (Noch Mal / Keer op Keer)
+description: A (digital) game sheet for Bravo (Noch Mal so gut / Keer op Keer 2)
 
 publish_to: "none" 
 
-version: 1.0.5+6
+version: 1.1.0+7
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -15,6 +15,7 @@ dependencies:
   shared_preferences: ^2.0.15
   assets_audio_player: ^3.0.5
   wakelock_plus: ^1.2.8
+  in_app_review: ^2.0.9
 
 dev_dependencies:
   flutter_test:

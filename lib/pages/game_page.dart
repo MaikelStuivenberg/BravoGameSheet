@@ -10,6 +10,7 @@ import 'package:encore2_gamesheet/pages/settings_page.dart';
 import 'package:encore2_gamesheet/painters/cross_painter.dart';
 import 'package:encore2_gamesheet/painters/slash_painter.dart';
 import 'package:flutter/material.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../constants/field_letters.dart';
@@ -42,88 +43,97 @@ class GamePageState extends State<GamePage> {
       backgroundColor: darkMode
           ? const Color.fromARGB(255, 30, 30, 30)
           : const Color.fromARGB(255, 240, 240, 240),
-      body: Container(
-        width: double.infinity,
-        margin: const EdgeInsets.all(18),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            showLeftColumn(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                showHeadRow(),
-                showPlayField(),
-                showScoreRow(),
-              ],
-            ),
-            showRightLetters(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Column(
-                          children: [
-                            for (int i = 0; i < gameState.maxBonus; i = i + 2)
-                              Container(
-                                margin: const EdgeInsets.fromLTRB(10, 4, 0, 0),
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      showBonusField(i),
-                                      showBonusField(i + 1)
-                                    ]),
-                              ),
-                          ],
-                        ),
-                        Container(height: 10),
-                        Column(
-                          children: [
-                            for (int i = 0; i < gameState.maxHearts; i = i + 2)
-                              Container(
-                                margin: const EdgeInsets.fromLTRB(10, 4, 0, 0),
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      showHeartField(i),
-                                      if (i + 1 < gameState.maxHearts)
-                                        showHeartField(i + 1)
-                                    ]),
-                              ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        showClosedScoreRow(BoxColors.greenBox),
-                        showClosedScoreRow(BoxColors.yellowBox),
-                        showClosedScoreRow(BoxColors.blueBox),
-                        showClosedScoreRow(BoxColors.pinkBox),
-                        showClosedScoreRow(BoxColors.orangeBox),
-                      ],
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Row(
-                      children: [for (var i = 0; i < 5; i++) showBoxField(i)],
-                    ),
-                    Row(
-                      children: [for (var i = 5; i < 9; i++) showBoxField(i)],
-                    )
-                  ],
-                ),
-                Row(
-                  children: [showScoreBoard()],
-                )
-              ],
-            ),
-          ],
+      body: SafeArea(
+        minimum: const EdgeInsets.all(18),
+        child: Container(
+          width: double.infinity,
+          // margin: const EdgeInsets.all(12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              showLeftColumn(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  showHeadRow(),
+                  showPlayField(),
+                  showScoreRow(),
+                ],
+              ),
+              showRightLetters(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Column(
+                        children: [
+                          Column(
+                            children: [
+                              for (int i = 0; i < gameState.maxBonus; i = i + 2)
+                                Container(
+                                  margin:
+                                      const EdgeInsets.fromLTRB(10, 4, 0, 0),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        showBonusField(i),
+                                        showBonusField(i + 1)
+                                      ]),
+                                ),
+                            ],
+                          ),
+                          Container(height: 10),
+                          Column(
+                            children: [
+                              for (int i = 0;
+                                  i < gameState.maxHearts;
+                                  i = i + 2)
+                                Container(
+                                  margin:
+                                      const EdgeInsets.fromLTRB(10, 4, 0, 0),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        showHeartField(i),
+                                        if (i + 1 < gameState.maxHearts)
+                                          showHeartField(i + 1)
+                                      ]),
+                                ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          showClosedScoreRow(BoxColors.greenBox),
+                          showClosedScoreRow(BoxColors.yellowBox),
+                          showClosedScoreRow(BoxColors.blueBox),
+                          showClosedScoreRow(BoxColors.pinkBox),
+                          showClosedScoreRow(BoxColors.orangeBox),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Row(
+                        children: [for (var i = 0; i < 5; i++) showBoxField(i)],
+                      ),
+                      Row(
+                        children: [for (var i = 5; i < 9; i++) showBoxField(i)],
+                      )
+                    ],
+                  ),
+                  Row(
+                    children: [showScoreBoard()],
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -786,7 +796,7 @@ class GamePageState extends State<GamePage> {
   }
 
   double getDefaultBoxSize() {
-    var maxWidth = (MediaQuery.of(context).size.width - 200) / 18;
+    var maxWidth = (MediaQuery.of(context).size.width - 270) / 18;
     var maxHeight = MediaQuery.of(context).size.height / 11;
     return maxHeight > maxWidth ? maxWidth : maxHeight;
   }
@@ -804,7 +814,23 @@ class GamePageState extends State<GamePage> {
     });
   }
 
+  void updateAmountOfPlayedGames() async {
+    final prefs = await SharedPreferences.getInstance();
+    var amountOfPlayedGames = prefs.getInt(Settings.amountOfPlayedGames) ?? 0;
+    amountOfPlayedGames++;
+    prefs.setInt(Settings.amountOfPlayedGames, amountOfPlayedGames);
+  }
+
+  Future<bool> isSecondGame() async {
+    var amountOfPlayedGames = (await SharedPreferences.getInstance())
+        .getInt(Settings.amountOfPlayedGames);
+
+    return amountOfPlayedGames != null && amountOfPlayedGames == 2;
+  }
+
   void gameFinished() {
+    updateAmountOfPlayedGames();
+
     playWinSound();
 
     showDialog<String>(
@@ -815,12 +841,31 @@ class GamePageState extends State<GamePage> {
             'You finished the game with ${gameState.getTotalPoints()} points!'),
         actions: <Widget>[
           TextButton(
-            onPressed: () => {Navigator.pop(context, "Cancel")},
+            onPressed: () async {
+              if (await InAppReview.instance.isAvailable() &&
+                  await isSecondGame()) {
+                InAppReview.instance.requestReview();
+              }
+
+              if (!context.mounted) return;
+
+              Navigator.pop(context, "Cancel");
+            },
             child: const Text('Cancel'),
           ),
           TextButton(
-            onPressed: () =>
-                {resetGame(gameState.level), Navigator.pop(context, "Ok")},
+            onPressed: () async {
+              resetGame(gameState.level);
+
+              if (await InAppReview.instance.isAvailable() &&
+                  await isSecondGame()) {
+                InAppReview.instance.requestReview();
+              }
+
+              if (!context.mounted) return;
+
+              Navigator.pop(context, "Ok");
+            },
             child: const Text('Start new game'),
           ),
         ],

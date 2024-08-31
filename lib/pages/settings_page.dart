@@ -2,8 +2,6 @@ import 'package:encore2_gamesheet/constants/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'choose_card.dart';
-
 class SettingsPage extends StatefulWidget {
   const SettingsPage({required Key key}) : super(key: key);
 

@@ -48,12 +48,12 @@ platform :ios do
       force: true,
       precheck_include_in_app_purchases: false,
       release_notes: ({
-        'default' => "We made the gamesheet a little bit better",
-        'nl-NL' => "We hebben de gamesheet een beetje verbeterd",
-        'de-DE' => "Wir haben das Spielblatt ein bisschen verbessert"
-        # 'es-ES' => 'We made the gamesheet a little bit better 🎲',
-        # 'it-IT' => 'We made the gamesheet a little bit better 🎲',
-        # 'pt-PT' => 'We made the gamesheet a little bit better 🎲'
+        'default' => "We changed the name to the corresponding game in The Netherlands, Germany and other countries",
+        'nl-NL' => "We hebben de naam veranderd naar de corresponderende game in Nederland, Duitsland en andere landen",
+        'de-DE' => "Wir haben den Namen in das entsprechende Spiel in den Niederlanden, Deutschland und anderen Ländern geändert",
+        'it-IT' => "Abbiamo cambiato il nome al gioco corrispondente in Olanda e Germania",
+        'pt-PT' => "Mudámos o nome para o jogo correspondente na Holanda, Alemanha e outros países",
+        'es-ES' => "Hemos cambiado el nombre al juego correspondiente en los Países Bajos, Alemania y otros países"
       })
     )
   end
