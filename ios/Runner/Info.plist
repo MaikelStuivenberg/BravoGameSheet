@@ -19,7 +19,7 @@
 		<string>de</string>
 		<string>it</string>
 		<string>pt</string>
-		<string>es</string>
+		<string>es-ES</string>
 	</array>
 	<key>CFBundleName</key>
 	<string>encore2_gamesheet</string>
