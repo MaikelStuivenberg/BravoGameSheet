@@ -51,7 +51,6 @@ platform :ios do
         'default' => "We changed the name to the corresponding game in The Netherlands, Germany and other countries",
         'nl-NL' => "We hebben de naam veranderd naar de corresponderende game in Nederland, Duitsland en andere landen",
         'de-DE' => "Wir haben den Namen in das entsprechende Spiel in den Niederlanden, Deutschland und anderen Ländern geändert",
-        'it-IT' => "Abbiamo cambiato il nome al gioco corrispondente in Olanda e Germania",
         'pt-PT' => "Mudámos o nome para o jogo correspondente na Holanda, Alemanha e outros países",
         'es-ES' => "Hemos cambiado el nombre al juego correspondiente en los Países Bajos, Alemania y otros países"
       })
