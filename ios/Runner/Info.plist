@@ -17,9 +17,6 @@
 		<string>en</string>
 		<string>nl</string>
 		<string>de</string>
-		<string>it</string>
-		<string>pt</string>
-		<string>es-ES</string>
 	</array>
 	<key>CFBundleName</key>
 	<string>encore2_gamesheet</string>
