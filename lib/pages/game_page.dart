@@ -44,7 +44,7 @@ class GamePageState extends State<GamePage> {
           ? const Color.fromARGB(255, 30, 30, 30)
           : const Color.fromARGB(255, 240, 240, 240),
       body: SafeArea(
-        minimum: const EdgeInsets.all(18),
+        minimum: const EdgeInsets.fromLTRB(8, 16, 8, 16),
         child: Container(
           width: double.infinity,
           // margin: const EdgeInsets.all(12),
@@ -645,9 +645,9 @@ class GamePageState extends State<GamePage> {
             alignment: Alignment.center,
             children: [
               circle
-                  ? const Icon(
+                  ? Icon(
                       Icons.circle_outlined,
-                      size: 30,
+                      size: getDefaultBoxSize() - 5,
                       color:
                           Colors.red, //darkMode ? Colors.white : Colors.black,
                     )
@@ -686,7 +686,7 @@ class GamePageState extends State<GamePage> {
                 ? Colors.white
                 : Colors.black,
         fontWeight: FontWeight.bold,
-        fontSize: circle ? 16 : 20,
+        fontSize: circle ? 16 : 16,
       ),
     );
 
@@ -796,7 +796,11 @@ class GamePageState extends State<GamePage> {
   }
 
   double getDefaultBoxSize() {
-    var maxWidth = (MediaQuery.of(context).size.width - 270) / 18;
+    var width = MediaQuery.of(context).size.width;
+    var safeWidth = width -
+        MediaQuery.of(context).padding.left -
+        MediaQuery.of(context).padding.right;
+    var maxWidth = (safeWidth - 200) / 18;
     var maxHeight = MediaQuery.of(context).size.height / 11;
     return maxHeight > maxWidth ? maxWidth : maxHeight;
   }
