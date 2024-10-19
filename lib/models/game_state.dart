@@ -80,6 +80,7 @@ class GameState {
     manualClosedColors = [];
     _manualClosedColumns = [];
     _manualClosedRows = [];
+    heartsBonusPoints = [];
 
     bonusUsed = 0;
     boxesUsed = 0;

@@ -45,7 +45,7 @@ class GamePageState extends State<GamePage> {
           : const Color.fromARGB(255, 240, 240, 240),
       body: SafeArea(
         minimum: const EdgeInsets.fromLTRB(8, 16, 8, 16),
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           // margin: const EdgeInsets.all(12),
           child: Row(
@@ -399,7 +399,7 @@ class GamePageState extends State<GamePage> {
             CustomPaint(
                 size: const Size(30, 30),
                 painter: CrossPainter(
-                    color: darkMode ? Colors.white : Colors.black)),
+                    color: Colors.red)),
         ]),
         onTap: () {
           playClickSound();

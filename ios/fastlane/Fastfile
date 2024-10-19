@@ -48,12 +48,12 @@ platform :ios do
       force: true,
       precheck_include_in_app_purchases: false,
       release_notes: ({
-        'default' => "We changed the name to the corresponding game in The Netherlands, Germany and other countries",
-        'en-GB' => "We changed the name to the corresponding game in The Netherlands, Germany and other countries",
-        'nl-NL' => "We hebben de naam veranderd naar de corresponderende game in Nederland, Duitsland en andere landen",
-        'de-DE' => "Wir haben den Namen in das entsprechende Spiel in den Niederlanden, Deutschland und anderen Ländern geändert",
-        'pt-PT' => "Mudámos o nome para o jogo correspondente na Holanda, Alemanha e outros países",
-        'es-ES' => "Hemos cambiado el nombre al juego correspondiente en los Países Bajos, Alemania y otros países"
+        'default' => "We solved incorrect points when playing the game a second time, and also improved the colors of the boxes",
+        'en-GB' => "We solved incorrect points when playing the game a second time, and also improved the colors of the boxes",
+        'nl-NL' => "We hebben incorrecte punten opgelost bij het spelen van het spel een tweede keer, en ook de kleuren van de vakjes verbeterd",
+        'de-DE' => "Wir haben falsche Punkte beim erneuten Spielen des Spiels gelöst und auch die Farben der Kästchen verbessert",
+        'pt-PT' => "Resolvemos pontos incorretos ao jogar o jogo pela segunda vez e também melhoramos as cores das caixas",
+        'es-ES' => "Resolvimos puntos incorrectos al jugar el juego por segunda vez y también mejoramos los colores de las cajas",
       })
     )
   end

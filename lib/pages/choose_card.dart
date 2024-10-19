@@ -65,7 +65,9 @@ class ChooseCardPageState extends State<ChooseCardPage> {
                       ],
                     ),
                   ),
-                  Expanded(flex: 3, child: Image.asset("assets/images/lvl$_lvl.jpg")),
+                  Expanded(
+                      flex: 3,
+                      child: Image.asset("assets/images/lvl$_lvl.jpg")),
                 ],
               ),
             ),
@@ -117,15 +119,17 @@ class ChooseCardPageState extends State<ChooseCardPage> {
         value: lvl,
         groupValue: _lvl,
         onChanged: (String? val) => {
-          setState(() => {
-                if (val!.isNotEmpty) {_lvl = val}
-              }),
+          setState(() {
+            if (val!.isNotEmpty) {
+              _lvl = val;
+            }
+          }),
         },
       ),
       onTap: () => {
-        setState(() => {
-              _lvl = lvl,
-            }),
+        setState(() {
+          _lvl = lvl;
+        }),
       },
     );
   }
