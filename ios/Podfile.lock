@@ -4,7 +4,7 @@ PODS:
   - assets_audio_player_web (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - in_app_review (0.2.0):
+  - in_app_review (2.0.0):
     - Flutter
   - package_info_plus (0.4.5):
     - Flutter
@@ -53,14 +53,14 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   assets_audio_player: edee322b9cb625571b830b35872ead1a295fd917
   assets_audio_player_web: 19826380c44375761aa0b9053665c1e3fbc3b86b
-  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  in_app_review: 318597b3a06c22bb46dc454d56828c85f444f99d
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  in_app_review: 436034b18594851a7328d7f1c2ed5ec235b79cfc
   package_info_plus: c0502532a26c7662a62a356cebe2692ec5fe4ec4
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
-  wakelock_plus: 78ec7c5b202cab7761af8e2b2b3d0671be6c4ae1
+  wakelock_plus: 76957ab028e12bfa4e66813c99e46637f367fc7e
 
-PODFILE CHECKSUM: c4c93c5f6502fe2754f48404d3594bf779584011
+PODFILE CHECKSUM: 0dbd5a87e0ace00c9610d2037ac22083a01f861d
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
