@@ -48,12 +48,12 @@ platform :ios do
       force: true,
       precheck_include_in_app_purchases: false,
       release_notes: ({
-        'default' => "We solved incorrect points when playing the game a second time, and also improved the colors of the boxes",
-        'en-GB' => "We solved incorrect points when playing the game a second time, and also improved the colors of the boxes",
-        'nl-NL' => "We hebben incorrecte punten opgelost bij het spelen van het spel een tweede keer, en ook de kleuren van de vakjes verbeterd",
-        'de-DE' => "Wir haben falsche Punkte beim erneuten Spielen des Spiels gelöst und auch die Farben der Kästchen verbessert",
-        'pt-PT' => "Resolvemos pontos incorretos ao jogar o jogo pela segunda vez e também melhoramos as cores das caixas",
-        'es-ES' => "Resolvimos puntos incorrectos al jugar el juego por segunda vez y también mejoramos los colores de las cajas",
+        'default' => "Fixed the total score and settings button not appearing on some phones in landscape mode",
+        'en-GB' => "Fixed the total score and settings button not appearing on some phones in landscape mode",
+        'nl-NL' => "De totaalscore en de knop voor instellingen werden op sommige telefoons in landschapsmodus niet getoond; dat is opgelost",
+        'de-DE' => "Gesamtpunktzahl und Einstellungen wurden auf manchen Handys im Querformat nicht angezeigt; das ist behoben",
+        'pt-PT' => "Corrigimos o problema em que a pontuação total e o botão de definições não apareciam em alguns telemóveis no modo paisagem",
+        'es-ES' => "Corregimos un problema por el que la puntuación total y el botón de ajustes no aparecían en algunos teléfonos en modo horizontal",
       })
     )
   end

@@ -50,6 +50,7 @@ class GamePageState extends State<GamePage> {
           // margin: const EdgeInsets.all(12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               showLeftColumn(),
               Column(
@@ -62,74 +63,91 @@ class GamePageState extends State<GamePage> {
               ),
               showRightLetters(),
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
-                    children: [
-                      Column(
+                  Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: Alignment.topCenter,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Column(
+                          Row(
                             children: [
-                              for (int i = 0; i < gameState.maxBonus; i = i + 2)
-                                Container(
-                                  margin:
-                                      const EdgeInsets.fromLTRB(10, 4, 0, 0),
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        showBonusField(i),
-                                        showBonusField(i + 1)
-                                      ]),
-                                ),
+                              Column(
+                                children: [
+                                  Column(
+                                    children: [
+                                      for (int i = 0;
+                                          i < gameState.maxBonus;
+                                          i = i + 2)
+                                        Container(
+                                          margin: const EdgeInsets.fromLTRB(
+                                              10, 4, 0, 0),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                showBonusField(i),
+                                                showBonusField(i + 1)
+                                              ]),
+                                        ),
+                                    ],
+                                  ),
+                                  Container(height: 10),
+                                  Column(
+                                    children: [
+                                      for (int i = 0;
+                                          i < gameState.maxHearts;
+                                          i = i + 2)
+                                        Container(
+                                          margin: const EdgeInsets.fromLTRB(
+                                              10, 4, 0, 0),
+                                          child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                showHeartField(i),
+                                                if (i + 1 <
+                                                    gameState.maxHearts)
+                                                  showHeartField(i + 1)
+                                              ]),
+                                        ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  showClosedScoreRow(BoxColors.greenBox),
+                                  showClosedScoreRow(BoxColors.yellowBox),
+                                  showClosedScoreRow(BoxColors.blueBox),
+                                  showClosedScoreRow(BoxColors.pinkBox),
+                                  showClosedScoreRow(BoxColors.orangeBox),
+                                ],
+                              ),
                             ],
                           ),
-                          Container(height: 10),
                           Column(
                             children: [
-                              for (int i = 0;
-                                  i < gameState.maxHearts;
-                                  i = i + 2)
-                                Container(
-                                  margin:
-                                      const EdgeInsets.fromLTRB(10, 4, 0, 0),
-                                  child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        showHeartField(i),
-                                        if (i + 1 < gameState.maxHearts)
-                                          showHeartField(i + 1)
-                                      ]),
-                                ),
+                              Row(
+                                children: [
+                                  for (var i = 0; i < 5; i++) showBoxField(i)
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  for (var i = 5; i < 9; i++) showBoxField(i)
+                                ],
+                              )
                             ],
                           ),
                         ],
                       ),
-                      Column(
-                        children: [
-                          showClosedScoreRow(BoxColors.greenBox),
-                          showClosedScoreRow(BoxColors.yellowBox),
-                          showClosedScoreRow(BoxColors.blueBox),
-                          showClosedScoreRow(BoxColors.pinkBox),
-                          showClosedScoreRow(BoxColors.orangeBox),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Row(
-                        children: [for (var i = 0; i < 5; i++) showBoxField(i)],
-                      ),
-                      Row(
-                        children: [for (var i = 5; i < 9; i++) showBoxField(i)],
-                      )
-                    ],
+                    ),
                   ),
                   Row(
                     children: [showScoreBoard()],
-                  )
+                  ),
                 ],
               ),
             ],
@@ -141,7 +159,7 @@ class GamePageState extends State<GamePage> {
 
   Widget showScoreBoard() {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 10, 0, 1),
+      margin: const EdgeInsets.fromLTRB(0, 4, 0, 1),
       child: Row(
         children: [
           showScoreBoardRow(null, "", "=", gameState.getTotalPoints(), true),
@@ -187,8 +205,6 @@ class GamePageState extends State<GamePage> {
           ],
         ),
       ));
-    } else {
-      optionalElements.add(const SizedBox(width: 0, height: 20));
     }
 
     return Container(
@@ -797,11 +813,12 @@ class GamePageState extends State<GamePage> {
 
   double getDefaultBoxSize() {
     var width = MediaQuery.of(context).size.width;
-    var safeWidth = width -
-        MediaQuery.of(context).padding.left -
-        MediaQuery.of(context).padding.right;
+    var height = MediaQuery.of(context).size.height;
+    var padding = MediaQuery.of(context).padding;
+    var safeWidth = width - padding.left - padding.right;
+    var safeHeight = height - padding.top - padding.bottom;
     var maxWidth = (safeWidth - 200) / 18;
-    var maxHeight = MediaQuery.of(context).size.height / 11;
+    var maxHeight = safeHeight / 11;
     return maxHeight > maxWidth ? maxWidth : maxHeight;
   }
 
