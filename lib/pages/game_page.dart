@@ -1,4 +1,4 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:encore2_gamesheet/constants/box_colors.dart';
 import 'package:encore2_gamesheet/constants/card_points.dart';
 import 'package:encore2_gamesheet/constants/row_bonus.dart';
@@ -902,19 +902,11 @@ class GamePageState extends State<GamePage> {
 
   void playWinSound() {
     if (!sounds) return;
-    AssetsAudioPlayer.newPlayer().open(
-      Audio("assets/audios/win.wav"),
-      autoStart: true,
-      showNotification: false,
-    );
+    AudioPlayer().play(AssetSource('audios/win.wav'));
   }
 
   void playClickSound() {
     if (!sounds) return;
-    AssetsAudioPlayer.newPlayer().open(
-      Audio("assets/audios/click.wav"),
-      autoStart: true,
-      showNotification: false,
-    );
+    AudioPlayer().play(AssetSource('audios/click.wav'));
   }
 }
